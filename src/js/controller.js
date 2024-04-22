@@ -14,10 +14,6 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import addRecipeView from './views/addRecipeView.js';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const recipeContainer = document.querySelector('.recipe');
 
 // https://forkify-api.herokuapp.com/v2
@@ -87,7 +83,6 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
 
   // Update the recipe view
-  // recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
@@ -139,10 +134,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('Welcome to the application');
-};
-
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -151,6 +142,5 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  newFeature();
 };
 init();
